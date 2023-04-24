@@ -1,21 +1,21 @@
-const mongoose = new require('mongoose')
+const mongoose = require('mongoose')
 
 const MulherSchema = new mongoose.Schema({
     nome: {
         type: String,
-        requerid: true
+        required: true
     },
     imagem: {
         type: String,
-        requerid: true
+        required: true
     },
     citacao: {
         type: String,
-        requerid: true
+        required: true
     },
     minibio: {
         type: String,
-        requerid: true
+        required: true
     }
 })
 

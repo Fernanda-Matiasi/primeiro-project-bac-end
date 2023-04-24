@@ -1,13 +1,13 @@
-const express = require("express") //aqui estou iniciando o express
-const router = express.Router() //aqui estou configurando a primeira parte da rota
-const cors = require('cors')// aqui estou trazendo o pacote cors que permite consumir essa api no front-end
+const express = require("express")  //aqui estou iniciando o express
+const router = express.Router()  //aqui estou configurando a primeira parte da rota
+const cors = require('cors') // aqui estou trazendo o pacote cors que permite consumir essa api no front-end
 
 const conectaBancoDeDados = require('./bancoDeDados')//aqui estou ligando ao arquivo bancoDeDados
 conectaBancoDeDados()// estou chamando a função que conecta o banco de dados
 
 const Mulher = require('./mulherModel')
 
-const app = express()//aqui estou iniciando o app
+const app = express() //aqui estou iniciando o app
 app.use(express.json())
 app.use(cors())
 
@@ -20,8 +20,8 @@ async function mostraMulheres(request, response){
 
         response.json(mulheresVindasDoBancoDeDados)
 
-       } catch (error) {
-        console.log(error)
+       } catch (erro) {
+        console.log(erro)
        }
 }
 
@@ -37,8 +37,8 @@ async function mostraMulheres(request, response){
 try {
     const mulherCriada = await novaMulher.save()
     response.status(201).json(mulherCriada)
-} catch (error) {
-    console.log(error)
+} catch (erro) {
+    console.log(erro)
 }
 
 }
@@ -68,8 +68,8 @@ async function corrigeMulher(request, response){
 
     response.json(mulherAtualizadaNoBancoDeDados)
     
- } catch (error) {
-    console.log(error)
+ } catch (erro) {
+    console.log(erro)
  }
 }
 
@@ -79,8 +79,8 @@ async function deletaMulher(request, response){
     try {
         await Mulher.findByIdAndDelete(request,params.id)
         response.json({ messagem: 'Mulher deletada com sucesso!'})
-    } catch (error) {
-        console.log(error)
+    } catch (erro) {
+        console.log(erro)
     }
 
 }

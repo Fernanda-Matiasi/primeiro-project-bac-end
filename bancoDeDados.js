@@ -1,5 +1,5 @@
-const mongoose = requeri('mongoose')
-requeri('dotenv').config()
+const mongoose = require('mongoose')
+require('dotenv').config()
 
 async function conectaBancoDeDados() {
 try {
